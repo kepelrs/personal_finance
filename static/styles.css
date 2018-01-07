@@ -1,0 +1,162 @@
+.navbar-container {
+    display: inline-block;
+    margin: 0px 0px -4px 0px;
+    padding: 0;
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+    overflow: hidden;
+    margin: auto;
+    padding: 0; 
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+/* above is css for the navigation bar */
+/* from https://www.w3schools.com/css/css_navbar.asp */
+
+body {
+    text-align: center;
+}
+
+h1 {
+    font-family: Monoton;
+    font-size: 70px;
+    margin: 0.2em;
+}
+
+h2 {
+    margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+    margin-top: 0.5em;
+}
+
+table {
+    margin: 10px auto 10px auto;
+    vertical-align: middle;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+tr {
+    border: 1px solid black;
+    height: 20px;
+}
+
+td {
+    border: 1px solid black;
+    width: 20px;
+}
+
+div {
+    margin: auto;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type=number] {
+    width: 5em;
+}
+
+@-webkit-keyframes yellow-fade {   
+   0% {background: yellow;}
+   100% {background: none;}
+}
+
+@keyframes yellow-fade {
+   0% {background: yellow;}
+   100% {background: none;}
+}
+
+#total_pct {
+    font-weight: bold;
+    color: green;
+}
+
+#usr {
+    visibility: hidden;
+}
+
+#startingSavings {
+    text-align: right
+}
+
+#login_div {
+float: left;
+}
+
+#or {
+    float: left;
+    text-align: center;
+    padding: 75px 0;
+}
+
+#register_div {
+float: left;
+}
+
+.rawNum {
+    text-align: right
+}
+
+.info {
+    font-style: italic; 
+    font-size: small;
+}
+
+.top_part {
+    width: 40%;
+    display: inline-block;
+    margin: 15px 4% 15px 4%;
+}
+
+.hidden_div {
+    display: none;
+}
+
+.positiveIncome{
+    background-color: aquamarine;
+}
+
+.negativeIncome{
+    background-color: salmon;
+}
+
+.balance {
+    background-color: gold;
+}

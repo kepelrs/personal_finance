@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Personal Finance!</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../static/app.js"></script>
+    <script src="../static/jquery.sha256.js"></script>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <h1>Personal Finance!</h1>
+    <div class="navbar-container">
+        <ul>
+                <li><a class="active home" href="#">Home</a></li>
+                <li><a class="personal_plan" href="#">Personal Plan</a></li>
+                <li><a class="tracker" href="#">Tracker</a></li>
+                <li><a class="register_login" href="#">Login/Register</a></li>
+                <li><a class="about" href="#">About</a></li>
+        </ul>
+    </div>
+    <hr>
+
+    <div class="home">
+        <h2>Welcome to Personal Finance!</h2>
+
+        <p>This website is meant to be a simple finance tracker.</p>
+        <p><em>Below you can find a brief guide on how to use each tab.</em></p>
+
+        <h4>Personal Plan</h4>
+        <p>In this tab you will be able to setup how much of your monthly income you wish to spend in each category.<br>
+        This tab can also tell you how many years you will have to work before you can retire based on how much you are able to save.</p>
+
+        <h4>Tracker</h4>
+        <p>You can visually see and keep track of your income and expenses by using this tab. It will automatically divide your income based on how you set up your "Personal Plan".</p>
+
+        <h4>Login/Register</h4>
+        <p>You can Register in order to save your Personal Plan and tracking history.</p>
+
+        <h4>About</h4>
+        <p>This website is currently hosted at home on a RaspberryPi.<br>You can see more info in the "About tab".</p>
+    </div>
+
+    <div class="personal_plan hidden_div">
+        <table id="regExpenses">
+            <thead>
+                <tr>
+                    <th colspan="7">Monthly expenses</th>
+                </tr>
+                <tr>
+                    <td colspan="3">Regular Expenses</td>
+                    <td rowspan="2" id="personalPlanFun">Fun</td>
+                    <td colspan="2">Random Events</td>
+                    <td rowspan="2">Savings</td>
+                </tr>
+                <tr>
+                    <td id="personalPlanRent">Rent</td>
+                    <td id="personalPlanBills">Bills</td>
+                    <td>Food</td>
+                    <td id="personalPlanMisc">Monthly Misc.</td>
+                    <td id="personalPlanEmgcy">Emergency Fund</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7" class="info">Please set up your intended expenses plan</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table id="regular_income">
+            <tr>
+                <th>Regular Income</th>
+                <th>Your info</th>
+                <th>Expected age of retirement</th>
+            </tr>
+            <tr>
+                <td rowspan="2" id="total_pct">100%</td>
+                <td>Current age</td>
+                <td rowspan="4">
+                    <h1 id="retireAge">--</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="yourAge"></select>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <input type="number" class="rawNum total" placeholder="$0">
+                </td>
+                <td>Current savings</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="startingSavings" placeholder="$0">
+                </td>
+            </tr>
+            <tr>
+                <td class="info">Input your expected monthly income after taxes</td>
+                <td class="info">Input Your starting information</td>
+                <td class="info">Age you can retire on your own, based on 5% annual compound returns on your savings.</td>
+            </tr>
+        </table>
+        <button id="reloadPlan">Reload</button>
+        <button id="savePlan">Save setup</button>
+    </div>
+
+    <div class="tracker hidden_div">
+        <h2>Tracker</h2>
+        <table>
+            <tr>
+                <th colspan="2">Income</th>
+                <th colspan="2">Expenses</th>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td>
+                    <select id="incomeType">
+                        <option value="regular">Regular</option>
+                        <option value="extra">Extra</option>
+                    </select>
+                </td>
+                <td>Category</td>
+                <td><select id="expenseType" class="selectCtgry"></select></td>
+            <tr>
+                <td>Amount</td>
+                <td><input id="incomeTracker" type="number" class="rawNum" placeholder="$0"></td>
+                <td>Amount</td>
+                <td><input id="expensesTracker" type="number" class="rawNum" placeholder="$0"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="info">Type here the amount coming in</td>
+                <td colspan="2" class="info">Type here your spending info</td>
+            </tr>
+            <tr>
+                <td colspan="4" >Comments<br><textarea id="trackerComments" style="text-align: center" rows="4" cols="50" placeholder="Short note about this log"></textarea></td>
+            </tr>
+        </table>
+        <button id="resetAll">Reset</button>
+        <button id="submitLogs">Submit</button>
+    
+        <div id="logs">
+            <table>
+                <thead>
+                    <tr id="logCats"></tr>
+                    <tr><th colspan="20">Balance</th></tr>
+                    <tr id="balances" class="balance">
+                        <td colspan="20"></td>
+                    </tr>
+                    <tr><th colspan="20">Last 50 movements:</th></tr>
+                </thead>
+                <tbody id="logTable">
+                    <tr>
+                        <td colspan="20" class="positiveIncome"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="20" class="negativeIncome"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="refresh">Show last 50 logs.</button>
+        </div>
+    </div>
+
+    <div class="register_login hidden_div">
+        <div id="login_div" class="top_part">
+            <div style="float: right">
+                <br>
+                <h3>Login</h3>
+                <form id="login">
+                    User name:<br>
+                    <input id="loginusr" type="text" name="username"><br>
+                    User password:<br>
+                    <input id="loginpwd" type="password" name="psw"><br>
+                    <button>Login</button>
+                </form>
+            </div>
+        </div> 
+        <h2 id="or">OR</h2>
+        <div id="register_div" class="top_part">
+            <div style="float: left">
+                <h3>Register</h3>
+                <form id="register">
+                    User name:<br>
+                    <input id="regusr" type="text" name="username"><br>
+                    User password:<br>
+                    <input id="regpwd1" type="password" name="psw"><br>
+                    Confirm password:<br>
+                    <input id="regpwd2" type="password" name="psw2"><br>
+                    <button>Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="about hidden_div">
+        <h2>About this website</h2>
+        <h4>Inspired by</h4>
+        <p>This website is inspired by the <strong><a target="_blank" href="https://www.udacity.com/google-scholarships">Google Front-End Web Dev Challenge Scholarship</a></strong>, a few of the <a target="_blank" href="http://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/">Mr. Money Mustache articles</a>, and my will for <a target="_blank" href="{{ url_for('static', filename='freedom.jpg') }}">freedom</a>.</p>
+
+        <h4>First Project</h4>
+        <p>This project is not yet Front-end only focused. For my first project it was my wish to make everything from scratch on the back-end as well, in order to get a feel for how all the moving parts of a webpage come together.</p>
+
+        <h4>Front end & Back end</h4>
+        <p>For the Front-end I avoided libraries, as I wanted to practice the HTML, CSS, JavaScript and jQuery concepts from the course.
+        </p>
+
+        <p>For the Back-end I used Python's <a target="_blank" href="http://flask.pocoo.org/">Flask</a> library, the <a target="_blank" href="http://docs.peewee-orm.com/en/latest/">Peewee</a> library, and for the Login I tried to implement a <em>very</em> rudimentary login scheme of my own.</p>
+
+        <h4>Hosting</h4>
+        <p>I am currently hosting this project at home on a RaspberryPi.</p>
+
+        <h4>Closing notes</h4>
+        <p>I'll be updating this page soon with the <a target="_blank" href="https://github.com/kepelrs">GitHub link</a> for the whole project, and possibly a short guide meant for fellow web development newbies like me, who want to know how to host their own starter pages easily.</p>
+
+        <p>As of right now I don't intend to improve this project.<br>
+        It was meant as a first project, and I want to keep it as it is.</p>
+
+        <p>Looking back at all the code, I can say that I <em>"gently hate it"</em>. I can now see many ways how it could be so much better, but I didn't know how when I first started. In this way I'm happy with all that I've learned, and I'm sure that my next project will have a much better starting point because of this experience.</p>
+
+        <p><strong>Thank you for visiting!</strong></p>
+    </div>
+
+    <div class="server_message hidden_div"> </div>
+
+    <span id="usr" class="hidden_div"> </span>
+
+    <hr style="width: 100%">
+    <p>Finance 0.1</p>
+</body>
+</html>
