@@ -1,7 +1,5 @@
 *
 !*/
-
-# But not these files...
 !.gitignore
 !call_counter.py
 !database_model.py
@@ -11,14 +9,15 @@
 !/static/jquery.sha256.js
 !/static/styles.css
 !/templates/index.html
+!/README.md
 
-
-# Ignore everything
+#for reference:
+# Ignore everything:
 #*
 
-# ...even if they are in subdirectories
+# ...even if they are in subdirectories:
 #!*/
 
-# if the files to be tracked are in subdirectories
+# if the files to be tracked are in subdirectories:
 #!*/a/b/file1.txt
 #!*/a/b/c/*
