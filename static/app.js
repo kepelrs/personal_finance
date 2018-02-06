@@ -1,10 +1,10 @@
-var categories = ["Income", 
-                  "Rent", 
-                  "Bills", 
-                  "Food", 
-                  "Fun", 
-                  "Monthly Misc.", 
-                  "Emergency Fund", 
+var categories = ["Income",
+                  "Rent",
+                  "Bills",
+                  "Food",
+                  "Fun",
+                  "Monthly Misc.",
+                  "Emergency Fund",
                   "Savings"];
 
 var navBarItems =["personal_plan",
@@ -61,7 +61,7 @@ function updateTotalPctg() {
     $(".selectPctg").each(function(){
         totalPct += Number($(this).val());
         });
-    
+
     var pctTrackerElem = $("#total_pct");
     pctTrackerElem.text(totalPct + "%");
     if(totalPct > 100){
@@ -87,7 +87,7 @@ function trackerCategories() {
 function updateRawNums(event){
     var fields = ["rent", "bills", "food", "fun", "misc", "emgcy", "savings"];
     var i, newTotal;
-    
+
     if($(event.target).hasClass("total")){
         for(i=0; i < fields.length; i++){
             newTotal = Number($("."+fields[i]).val());
@@ -100,7 +100,7 @@ function updateRawNums(event){
             }
             else {
                 $("."+fields[i]+".rawNum").val(newTotal);
-            }            
+            }
         }
         return;
     } else {
@@ -115,9 +115,9 @@ function updateRawNums(event){
                 }
                 else {
                     $("."+fields[i]+".rawNum").val(newTotal);
-                }            
+                }
                 break;
-            }   
+            }
         }
     }
 }
@@ -182,13 +182,13 @@ function refreshButtonSetup() {
                         $("#logTable").append('<tr id="logId' + log[sequence.shift()] + '"></tr>');
                         target = $("#logTable tr").last();
                     }
-                    
+
                     if(Number(log.income) > 0){
                         target.toggleClass("positiveIncome");
                     } else if (Number(log.income) < 0) {
                         target.toggleClass("negativeIncome");
                     }
-                    
+
                     $.each(sequence, function(key, val) {
                         target.append("<td>" + log[sequence.shift()] + "</td>");
                     });
@@ -209,7 +209,7 @@ function registerButton() {
             alert("Registration passwords don't match");
             return;
         }
-        
+
         var form = {
             username: $("#regusr").val(),
             psw: $.sha256($("#regpwd1").val())
@@ -251,7 +251,7 @@ function loginButton() {
         $("#loginpwd").val("");
         $.post("/login", form, function(data) {
             data.redirect = "a." + data.redirect;
-            
+
             if(data.response === "success") {
                 displayServerMessage(data.serverMessage);
                 setTimeout(function(){
@@ -296,17 +296,14 @@ function logoutButton() {
 
 function hideAllDivs() {
     $.each(navBarItems, function(i, val) {
-        if(!$("."+val).hasClass("hidden_div")) {
-            $("div."+val).toggleClass("hidden_div");
-        }
+        $("div."+val).css("display", "none");
     });
 }
 
 function displayTargetDiv(e) {
     $($(e.target).attr("class").split(" ")).each(function(i, val){
-        if (navBarItems.indexOf(val) >= 0 &&
-                $("div."+val).hasClass("hidden_div")){
-            $("div."+val).toggleClass("hidden_div");
+        if (navBarItems.indexOf(val) >= 0){
+            $("div."+val).fadeIn();
         }
     });
 }
@@ -357,7 +354,7 @@ function saveSetup(){
             form.settings += $("#startingSavings").val();
 
 
-            
+
             $.post("/savesettings", form, function(data){
                 if (data.response === "success"){
                     alert("New settings saved");
@@ -376,7 +373,7 @@ function reloadPlan(){
             alert("Must be logged in to load.");
         } else {
             var form = getSession();
-            
+
             $.post("/loadsettings", form, function(data){
                 if (data.response === "success"){
                     var responseArray = data.content.split(",");
