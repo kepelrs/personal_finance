@@ -100,7 +100,7 @@ class DBHandler():
         ''' returns the n most recent logs '''
         select = Log.select().where(Log.user == user).where(Log.deleted == False)
         select = select.order_by(Log.id.desc())
-        instances = [mtd(i) for i in select[-n:]]
+        instances = [mtd(i) for i in select[:n]]
         return instances
 
     def get_balance(user):
