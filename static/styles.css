@@ -9,7 +9,7 @@ ul {
     list-style-type: none;
     overflow: hidden;
     margin: auto;
-    padding: 0; 
+    padding: 0;
     background-color: #333;
 }
 
@@ -93,7 +93,7 @@ input[type=number] {
     width: 5em;
 }
 
-@-webkit-keyframes yellow-fade {   
+@-webkit-keyframes yellow-fade {
    0% {background: yellow;}
    100% {background: none;}
 }
@@ -117,7 +117,7 @@ input[type=number] {
 }
 
 #login_div {
-float: left;
+    float: left;
 }
 
 #or {
@@ -127,7 +127,12 @@ float: left;
 }
 
 #register_div {
-float: left;
+    float: left;
+}
+
+#incomeTracker,
+#expensesTracker {
+    width: 5em;
 }
 
 .rawNum {
@@ -135,7 +140,7 @@ float: left;
 }
 
 .info {
-    font-style: italic; 
+    font-style: italic;
     font-size: small;
 }
 
