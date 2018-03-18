@@ -52,8 +52,6 @@ def getlogs():
 
     # strip unnecessary data
     for item in logs:
-        if "deleted" in item:
-            del item["deleted"]
         if "user" in item:
             del item["user"]
         if "income" not in item:
@@ -143,15 +141,22 @@ def addlog():
     expenseAmt = request.form["expenseAmt"][:20]
     comments = request.form["comments"][:200]
 
-    if incomeAmt:
+
+    if comments[:5] == "logId":
+        log_id = int(comments[5:])
+        DBHandler.delete_log(log_id)
+        DBHandler.revert_log(log_id)
+
+    elif incomeAmt:
         divided_income = DBHandler.divideIncome(user, incomeAmt, incomeType)
         DBHandler.add_log(*([user] + divided_income + [comments]))
         DBHandler.update_balance(*([user] + divided_income + [comments]))
 
-    if expenseAmt:
+    elif expenseAmt:
         divided_expense = DBHandler.divideExpense(expenseType, expenseAmt)
         DBHandler.add_log(*([user] + divided_expense + [comments]))
         DBHandler.update_balance(*([user] + divided_expense + [comments]))
+
 
     return jsonify({"response": "success",
                     "val": response_val})

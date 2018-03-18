@@ -162,6 +162,10 @@ input[type=number] {
     background-color: salmon;
 }
 
+.paidLoan{
+    background-color: cornflowerblue;
+}
+
 .balance {
     background-color: gold;
 }

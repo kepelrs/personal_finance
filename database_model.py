@@ -92,13 +92,27 @@ class DBHandler():
         ''' sets deleted parameter to True, and adds datetime to comments '''
         target = Log.get(Log.id == id)
         target.deleted = True
-        target.comments += "\ndeleted on: "
-        target.comments += str(datetime.datetime.now())
+        target.comments += "\nReturned: "
+        target.comments += str(datetime.datetime.now())[:19]
         target.save()
+
+    def revert_log(id):
+        target = Log.get(Log.id == id)
+        log_dict = mtd(target).items()
+        reversed_values = {}
+        invalid_update_balance_arguments = ["id", "deleted", "datetime"]
+        for k, v in log_dict:
+            if k in invalid_update_balance_arguments:
+                continue
+            elif type(v) == type(1) or type(v) == type(1.0):
+                reversed_values[k] = -int(v)
+            else:
+                reversed_values[k] = v
+        DBHandler.update_balance(**reversed_values)
 
     def get_latest_log(user, n):
         ''' returns the n most recent logs '''
-        select = Log.select().where(Log.user == user).where(Log.deleted == False)
+        select = Log.select().where(Log.user == user)
         select = select.order_by(Log.id.desc())
         instances = [mtd(i) for i in select[:n]]
         return instances

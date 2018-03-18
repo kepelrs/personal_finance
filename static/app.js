@@ -183,14 +183,20 @@ function refreshButtonSetup() {
                         target = $("#logTable tr").last();
                     }
 
-                    if(Number(log.income) > 0){
+                    if(log.deleted == true) {
+                        target.toggleClass("paidLoan");
+                    } else if(Number(log.income) > 0){
                         target.toggleClass("positiveIncome");
                     } else if (Number(log.income) < 0) {
                         target.toggleClass("negativeIncome");
                     }
 
                     $.each(sequence, function(key, val) {
-                        target.append("<td>" + log[sequence.shift()] + "</td>");
+                        if(val == "datetime") {
+                            target.append("<td class='datetime'>" + log[sequence.shift()] + "</td>");
+                        } else {
+                            target.append("<td>" + log[sequence.shift()] + "</td>");
+                        }
                     });
                 });
             $("#usr").html(data.val);
@@ -421,7 +427,7 @@ function sendLog() {
         form.incomeAmt = $("#incomeTracker").val();
         form.expenseType = $("#expenseType").val();
         form.expenseAmt = $("#expensesTracker").val();
-        form.comments = $("#trackerComments").val();
+        form.comments = scanIfPayingLoan();
 
         $.post("/addlog", form, function(data){
             if(data.response === "success"){
@@ -434,6 +440,22 @@ function sendLog() {
         });
         $("#resetAll").trigger("click");
     });
+}
+
+function scanIfPayingLoan() {
+    var datetime_array, comment, date, logId;
+    commentField = $("#trackerComments");
+    currentComment = commentField.val().trim();
+
+    $(".datetime").each(function (index, val) {
+        date = $(val);
+        if(date.html() == currentComment) {
+            logId = date.parent().attr('id');
+            commentField.val(logId);
+        }
+    });
+
+    return commentField.val();
 }
 
 function resetAll() {
