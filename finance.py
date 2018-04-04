@@ -3,6 +3,10 @@ from flask import Flask, request, render_template, redirect, jsonify
 from database_model import *
 from call_counter import count_calls, call_counter
 import logging
+import easy_email
+
+# backup files
+easy_email.send()
 
 # setup Flask app
 app = Flask(__name__)
