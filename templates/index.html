@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="../static/styles.css">
 
@@ -22,12 +25,14 @@
 </head>
 <body>
     <header>
-        <div class="burger-container">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
+        <div class="header-content-wrapper">
+            <div class="burger-container">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+            </div>
+            <h1>Personal Finance!</h1>
         </div>
-        <h1>Personal Finance!</h1>
     </header>
     <div class="navbar-container">
         <ul>
@@ -42,89 +47,102 @@
     <hr class="noMarginNoPadding">
 
     <div class="home">
-        <h2>Welcome to Personal Finance!</h2>
+        <div class="wrapper-carol">
+            <h2>Welcome!</h2>
 
-        <p>This website is meant to be a simple finance tracker.</p>
-        <p><em>Below you can find a brief guide on how to use each tab.</em></p>
+            <p>This website will set you FREE! Organize your income, keep an eye on your expenses and retire early.</p>
+            <p class="centeredText instruction-home"><em>Below you can find a brief guide on how to use each tab.</em></p>
 
-        <h4>Personal Plan</h4>
-        <p>In this tab you will be able to setup how much of your monthly income you wish to spend in each category.<br>
-        This tab can also tell you how many years you will have to work before you can retire based on how much you are able to save.</p>
+            <hr class="styledHr">
 
-        <h4>Tracker</h4>
-        <p>You can visually see and keep track of your income and expenses by using this tab. It will automatically divide your income based on how you set up your "Personal Plan".</p>
+            <h3>Personal Plan</h3>
+            <p>In this tab you will be able to setup how much of your monthly income you wish to spend in each category.<br>
+            This tab can also tell you how many years you will have to work before you can retire based on how much you are able to save.</p>
 
-        <h4>Login/Register</h4>
-        <p>You can Register in order to save your Personal Plan and tracking history.</p>
+            <hr class="styledHr">
 
-        <h4>About</h4>
-        <p>This website is currently hosted at home on a RaspberryPi.<br>You can see more info in the "About tab".</p>
+
+            <h3>Tracker</h3>
+            <p>You can visually see and keep track of your income and expenses by using this tab. It will automatically divide your income based on how you set up your "Personal Plan".</p>
+
+            <hr class="styledHr">
+
+            <h3>Login/Register</h3>
+            <p>You can Register in order to save your Personal Plan and tracking history.</p>
+
+            <hr class="styledHr">
+
+            <h3>About</h3>
+            <p>This website is currently hosted at home on a RaspberryPi.<br>You can see more info in the "About tab".</p>
+        </div>
     </div>
 
     <div class="personal_plan hidden_div">
-        <table id="regExpenses">
-            <thead>
-                <tr>
-                    <th colspan="7">Monthly expenses</th>
-                </tr>
-                <tr>
-                    <td colspan="3">Regular Expenses</td>
-                    <td rowspan="2" id="personalPlanFun">Fun</td>
-                    <td colspan="2">Random Events</td>
-                    <td rowspan="2">Savings</td>
-                </tr>
-                <tr>
-                    <td id="personalPlanRent">Rent</td>
-                    <td id="personalPlanBills">Bills</td>
-                    <td>Food</td>
-                    <td id="personalPlanMisc">Monthly Misc.</td>
-                    <td id="personalPlanEmgcy">Emergency Fund</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="7" class="info">Please set up your intended expenses plan</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="wrapper-carol">
+            <table id="regExpenses">
+                <thead>
+                    <tr>
+                        <th colspan="7">Monthly expenses</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Regular Expenses</td>
+                        <td rowspan="2" id="personalPlanFun">Fun</td>
+                        <td colspan="2">Random Events</td>
+                        <td rowspan="2">Savings</td>
+                    </tr>
+                    <tr>
+                        <td id="personalPlanRent">Rent</td>
+                        <td id="personalPlanBills">Bills</td>
+                        <td>Food</td>
+                        <td id="personalPlanMisc">Monthly Misc.</td>
+                        <td id="personalPlanEmgcy">Emergency Fund</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7" class="info">Please set up your intended expenses plan</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <table id="regular_income">
-            <tr>
-                <th>Regular Income</th>
-                <th>Your info</th>
-                <th>Expected age of retirement</th>
-            </tr>
-            <tr>
-                <td rowspan="2" id="total_pct">100%</td>
-                <td>Current age</td>
-                <td rowspan="4">
-                    <h1 id="retireAge">--</h1>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <select id="yourAge"></select>
-                </td>
-            </tr>
-            <tr>
-                <td rowspan="2">
-                    <input type="number" class="rawNum total" placeholder="$0">
-                </td>
-                <td>Current savings</td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="startingSavings" placeholder="$0">
-                </td>
-            </tr>
-            <tr>
-                <td class="info">Input your expected monthly income after taxes</td>
-                <td class="info">Input Your starting information</td>
-                <td class="info">Age you can retire on your own, based on 5% annual compound returns on your savings.</td>
-            </tr>
-        </table>
-        <button id="reloadPlan">Reload</button>
-        <button id="savePlan">Save setup</button>
+            <table id="regular_income">
+                <tr>
+                    <th>Regular Income</th>
+                    <th>Your info</th>
+                    <th>Expected age of retirement</th>
+                </tr>
+                <tr>
+                    <td rowspan="2" id="total_pct">100%</td>
+                    <td>Current age</td>
+                    <td rowspan="4">
+                        <h1 id="retireAge">--</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="yourAge"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <input type="number" class="rawNum total" placeholder="$0">
+                    </td>
+                    <td>Current savings</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="startingSavings" placeholder="$0">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="info">Input your expected monthly income after taxes</td>
+                    <td class="info">Input Your starting information</td>
+                    <td class="info">Age you can retire on your own, based on 5% annual compound returns on your savings.</td>
+                </tr>
+            </table>
+            <button id="reloadPlan">Reload</button>
+            <button id="savePlan">Save setup</button>
+        </div>
     </div>
 
     <div class="tracker hidden_div">
@@ -242,7 +260,7 @@
 
         <p>Looking back at all the code, I can say that I <em>"gently hate it"</em>. I can now see many ways how it could be so much better, but I didn't know how when I first started. In this way I'm happy with all that I've learned, and I'm sure that my next project will have a much better starting point because of this experience.</p>
 
-        <p><strong>Thank you for visiting!</strong></p>
+        <p class="centeredText"><strong>Thank you for visiting!</strong></p>
     </div>
 
     <div class="server_message hidden_div"> </div>
