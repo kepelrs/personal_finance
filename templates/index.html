@@ -3,14 +3,28 @@
 <head>
     <title>Personal Finance!</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="../static/app.js"></script>
-    <script src="../static/jquery.sha256.js"></script>
     <link rel="stylesheet" href="../static/styles.css">
+
+    <!-- scrollbar style from https://github.com/Grsmto/simplebar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
+
+    <!-- Fall back overflow for when script disabled -->
+    <noscript>
+      <style>
+        [data-simplebar] {
+          overflow: auto;
+        }
+      </style>
+    </noscript>
 </head>
 <body>
-    <h1>Personal Finance!</h1>
+    <header>
+        <h1>Personal Finance!</h1>
+        <div class="sandwich-menu"></div>
+    </header>
     <div class="navbar-container">
         <ul>
                 <li><a class="active home" href="#">Home</a></li>
@@ -136,14 +150,17 @@
                 <td colspan="2" class="info">Type here your spending info</td>
             </tr>
             <tr>
-                <td colspan="4" >Comments<br><textarea id="trackerComments" style="text-align: center" rows="4" cols="50" placeholder="Short note about this log"></textarea></td>
+                <td colspan="4" >Comments<br><textarea id="trackerComments" rows="4" cols="50" placeholder="Short note about this log"></textarea></td>
             </tr>
         </table>
+
         <button id="resetAll">Reset</button>
         <button id="submitLogs">Submit</button>
+        <br>
+        <button id="refresh">Show last 50 logs</button>
 
-        <div id="logs">
-            <table>
+        <div id="logs" data-simplebar>
+            <table class="noOuterBorder">
                 <thead>
                     <tr id="logCats"></tr>
                     <tr><th colspan="20">Balance</th></tr>
@@ -161,14 +178,12 @@
                     </tr>
                 </tbody>
             </table>
-            <button id="refresh">Show last 50 logs.</button>
         </div>
     </div>
 
     <div class="register_login hidden_div">
-        <div id="login_div" class="top_part">
-            <div style="float: right">
-                <br>
+        <div id="login_div">
+            <div>
                 <h3>Login</h3>
                 <form id="login">
                     User name:<br>
@@ -179,9 +194,9 @@
                 </form>
             </div>
         </div>
-        <h2 id="or">OR</h2>
-        <div id="register_div" class="top_part">
-            <div style="float: left">
+        <p class="login-or-register">OR</p>
+        <div id="register_div">
+            <div>
                 <h3>Register</h3>
                 <form id="register">
                     User name:<br>
@@ -229,7 +244,16 @@
 
     <span id="usr" class="hidden_div"> </span>
 
-    <hr style="width: 100%">
-    <p>Finance 0.1</p>
+    <hr>
+    <p>Finance 0.2</p>
+
+    <!-- scrollbar Javascript from https://github.com/Grsmto/simplebar -->
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
+    <!-- jQuery Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- this app's mechanics Javascript -->
+    <script src="../static/app.js"></script>
+    <!-- sha256 Javascript -->
+    <script src="../static/jquery.sha256.js"></script>
 </body>
 </html>

@@ -1,3 +1,6 @@
+/* css for the navigation bar */
+/* from https://www.w3schools.com/css/css_navbar.asp */
+
 .navbar-container {
     display: inline-block;
     margin: 0px 0px -4px 0px;
@@ -33,8 +36,9 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
-/* above is css for the navigation bar */
-/* from https://www.w3schools.com/css/css_navbar.asp */
+
+/* CSS for full size screens */
+
 
 body {
     text-align: center;
@@ -59,6 +63,7 @@ table {
     vertical-align: middle;
     text-align: center;
     border-collapse: collapse;
+    border: 1px solid #ddd;
 }
 
 th {
@@ -85,6 +90,7 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type="number"] {
     -moz-appearance: textfield;
 }
@@ -103,6 +109,17 @@ input[type=number] {
    100% {background: none;}
 }
 
+#logs table {
+    margin: 0 auto;
+}
+
+#logs {
+    max-width: 830px;
+    max-height: 80vh;
+    overflow: auto;
+    margin: 0 auto;
+}
+
 #total_pct {
     font-weight: bold;
     color: green;
@@ -116,23 +133,29 @@ input[type=number] {
     text-align: right
 }
 
-#login_div {
-    float: left;
-}
-
-#or {
-    float: left;
+#trackerComments {
     text-align: center;
-    padding: 75px 0;
-}
-
-#register_div {
-    float: left;
 }
 
 #incomeTracker,
 #expensesTracker {
     width: 5em;
+}
+
+#refresh {
+    margin: 0.5em auto;
+}
+
+#register_div {
+    margin-bottom: 1em;
+}
+
+.sandwich-menu {
+
+}
+
+.login-or-register {
+    font-weight: 700;
 }
 
 .rawNum {
@@ -168,4 +191,78 @@ input[type=number] {
 
 .balance {
     background-color: gold;
+}
+
+/* media queries */
+
+@media screen and (max-width: 900px) {
+    body {
+        background-color: inherit;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+}
+
+@media screen and (min-width: 830px) {
+    .simplebar-scrollbar {
+        right: 12px !important;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    #logs {
+        border: 1px solid black;
+        max-height: 80vh;
+        overflow: auto;
+    }
+
+
+/*
+ * remove outer border from table when it starts being scrolable
+ * and add border to parent element
+ */
+    .noOuterBorder {
+        border-collapse: collapse;
+        border: none;
+    }
+    .noOuterBorder thead,
+    .noOuterBorder thead * {
+        border-top: 0;
+    }
+
+    .noOuterBorder tr{
+        border-left: 0;
+        border-right: 0;
+    }
+    .noOuterBorder *:first-child{
+        border-left: 0;
+    }
+    .noOuterBorder *:last-child {
+        border-right: 0;
+    }
+
+    .noOuterBorder tr:last-child,
+    .noOuterBorder tr:last-child * {
+        border-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-color: inherit;
+        width: 90vw;
+        margin: auto;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    body {
+        background-color: inherit;
+    }
 }
