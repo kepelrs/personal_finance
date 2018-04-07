@@ -37,6 +37,15 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
 }
 
+a {
+    color: #55979a;
+}
+
+footer p {
+    color: #333;
+    font-size: x-small;
+}
+
 
 /* CSS for full size screens */
 
@@ -116,20 +125,27 @@ input[type=number] {
    100% {background: none;}
 }
 
+.log-income {
+    width: 98% !important;
+}
+
 #logs table {
     margin: 0 auto;
 }
 
 #logs {
+    width: 98% !important;
     max-width: 830px;
     max-height: 60vh;
     overflow: auto;
     margin: 0 auto;
+    padding: 0;
+    width: 100%;
 }
 
 #total_pct {
     font-weight: bold;
-    color: green;
+    color: #55979a;
 }
 
 #usr {
@@ -262,7 +278,7 @@ header {
     margin-top: 15px;
 }
 
-.wrapper-carol * {
+.wrapper-carol>* {
     padding: 0 10px;
 }
 
@@ -300,6 +316,10 @@ div.about h3,
 div.about h4 {
     color: #4caf50;
     text-align: center;
+}
+
+.green-text {
+    color: #4caf50;
 }
 
 /*

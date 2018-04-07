@@ -82,7 +82,7 @@
             <table id="regExpenses">
                 <thead>
                     <tr>
-                        <th colspan="7">Monthly expenses</th>
+                        <th colspan="7" class="green-text">Monthly expenses</th>
                     </tr>
                     <tr>
                         <td colspan="3">Regular Expenses</td>
@@ -107,9 +107,9 @@
 
             <table id="regular_income">
                 <tr>
-                    <th>Regular Income</th>
+                    <th class="green-text">Regular Income</th>
                     <th>Your info</th>
-                    <th>Expected age of retirement</th>
+                    <th class="green-text">Expected age of retirement</th>
                 </tr>
                 <tr>
                     <td rowspan="2" id="total_pct">100%</td>
@@ -146,129 +146,150 @@
     </div>
 
     <div class="tracker hidden_div">
-        <h2>Tracker</h2>
-        <table class="log-income">
-            <tr>
-                <th colspan="2">Income</th>
-                <th colspan="2">Expenses</th>
-            </tr>
-            <tr>
-                <td>Category</td>
-                <td>
-                    <select id="incomeType">
-                        <option value="regular">Regular</option>
-                        <option value="extra">Extra</option>
-                    </select>
-                </td>
-                <td>Category</td>
-                <td><select id="expenseType" class="selectCtgry"></select></td>
-            <tr>
-                <td>Amount</td>
-                <td><input id="incomeTracker" type="text" class="rawNum" placeholder="$0"></td>
-                <td>Amount</td>
-                <td><input id="expensesTracker" type="text" class="rawNum" placeholder="$0"></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="info">Type here the amount coming in</td>
-                <td colspan="2" class="info">Type here your spending info</td>
-            </tr>
-            <tr>
-                <td colspan="4" >Comments<br><textarea id="trackerComments" rows="4" placeholder="Short note about this log"></textarea></td>
-            </tr>
-        </table>
+        <div class="wrapper-carol">
 
-        <button id="resetAll">Reset</button>
-        <button id="submitLogs">Submit</button>
-        <br>
-        <button id="refresh">Show last 50 logs</button>
-
-        <div id="logs" data-simplebar>
-            <table class="noOuterBorder">
-                <thead>
-                    <tr id="logCats"></tr>
-                    <tr><th colspan="20">Balance</th></tr>
-                    <tr id="balances" class="balance">
-                        <td colspan="20"></td>
-                    </tr>
-                    <tr><th colspan="20">Last 50 movements:</th></tr>
-                </thead>
-                <tbody id="logTable">
-                    <tr>
-                        <td colspan="20" class="positiveIncome"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="20" class="negativeIncome"></td>
-                    </tr>
-                </tbody>
+            <h2 class="green-text">Tracker</h2>
+            <table class="log-income">
+                <tr>
+                    <th colspan="2" class="green-text">Income</th>
+                    <th colspan="2" class="green-text">Expenses</th>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>
+                        <select id="incomeType">
+                            <option value="regular">Regular</option>
+                            <option value="extra">Extra</option>
+                        </select>
+                    </td>
+                    <td>Category</td>
+                    <td><select id="expenseType" class="selectCtgry"></select></td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td><input id="incomeTracker" type="text" class="rawNum" placeholder="$0"></td>
+                    <td>Amount</td>
+                    <td><input id="expensesTracker" type="text" class="rawNum" placeholder="$0"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="info">Type here the amount coming in</td>
+                    <td colspan="2" class="info">Type here your spending info</td>
+                </tr>
+                <tr>
+                    <td colspan="4" >Comments<br><textarea id="trackerComments" rows="4" placeholder="Short note about this log"></textarea></td>
+                </tr>
             </table>
+
+            <button id="resetAll">Reset</button>
+            <button id="submitLogs">Submit</button>
+            <br>
+            <button id="refresh">Show last 50 logs</button>
+
+            <div id="logs" data-simplebar>
+                <table class="noOuterBorder">
+                    <thead>
+                        <tr id="logCats"></tr>
+                        <tr><th colspan="20">Balance</th></tr>
+                        <tr id="balances" class="balance">
+                            <td colspan="20"></td>
+                        </tr>
+                        <tr><th colspan="20">Last 50 movements:</th></tr>
+                    </thead>
+                    <tbody id="logTable">
+                        <tr>
+                            <td colspan="20" class="positiveIncome"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="20" class="negativeIncome"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 
     <div class="register_login hidden_div">
-        <div id="login_div">
-            <div>
-                <h3>Login</h3>
-                <form id="login">
-                    User name:<br>
-                    <input id="loginusr" type="text" name="username"><br>
-                    User password:<br>
-                    <input id="loginpwd" type="password" name="psw"><br>
-                    <button>Login</button>
-                </form>
+        <div class="wrapper-carol">
+
+            <div id="login_div">
+                <div>
+                    <h3 class="green-text">Login</h3>
+                    <form id="login">
+                        User name:<br>
+                        <input id="loginusr" type="text" name="username"><br>
+                        User password:<br>
+                        <input id="loginpwd" type="password" name="psw"><br>
+                        <button>Login</button>
+                    </form>
+                </div>
             </div>
-        </div>
-        <p class="login-or-register">OR</p>
-        <div id="register_div">
-            <div>
-                <h3>Register</h3>
-                <form id="register">
-                    User name:<br>
-                    <input id="regusr" type="text" name="username"><br>
-                    User password:<br>
-                    <input id="regpwd1" type="password" name="psw"><br>
-                    Confirm password:<br>
-                    <input id="regpwd2" type="password" name="psw2"><br>
-                    <button>Register</button>
-                </form>
+            <p class="login-or-register">OR</p>
+            <div id="register_div">
+                <div>
+                    <h3 class="green-text">Register</h3>
+                    <form id="register">
+                        User name:<br>
+                        <input id="regusr" type="text" name="username"><br>
+                        User password:<br>
+                        <input id="regpwd1" type="password" name="psw"><br>
+                        Confirm password:<br>
+                        <input id="regpwd2" type="password" name="psw2"><br>
+                        <button>Register</button>
+                    </form>
+                </div>
             </div>
+
         </div>
     </div>
 
     <div class="about hidden_div">
-        <h2>About this website</h2>
-        <p><em><strong>Update: </strong>This project is now very old. To see some already <strong>much cleaner</strong> code please visit the new project <a href="http://130.204.57.83:3127/" target="_blank">Movie Recommendations</a>.</em></p>
-        <h4>Inspired by</h4>
-        <p>This website is inspired by the <strong><a target="_blank" href="https://www.udacity.com/google-scholarships">Google Front-End Web Dev Challenge Scholarship</a></strong>, a few of the <a target="_blank" href="http://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/">Mr. Money Mustache articles</a>, and my will for <a target="_blank" href="{{ url_for('static', filename='freedom.jpg') }}">freedom</a>.</p>
+        <div class="wrapper-carol">
+            <h2>About this website</h2>
+            <p><em><strong>Update: </strong>This project is now very old. To see some already <strong>much cleaner</strong> code please visit the new project <a href="http://130.204.57.83:3127/" target="_blank">Movie Recommendations</a>.</em></p>
+            <h3>Inspired by</h3>
+            <p>This website is inspired by the <strong><a target="_blank" href="https://www.udacity.com/google-scholarships">Google Front-End Web Dev Challenge Scholarship</a></strong>, a few of the <a target="_blank" href="http://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/">Mr. Money Mustache articles</a>, and my will for <a target="_blank" href="{{ url_for('static', filename='freedom.jpg') }}">freedom</a>.</p>
 
-        <h4>First Project</h4>
-        <p>This project is not yet Front-end only focused. For my first project it was my wish to make everything from scratch on the back-end as well, in order to get a feel for how all the moving parts of a webpage come together.</p>
+            <hr class="styledHr">
 
-        <h4>Front end & Back end</h4>
-        <p>For the Front-end I avoided libraries, as I wanted to practice the HTML, CSS, JavaScript and jQuery concepts from the course.
-        </p>
 
-        <p>For the Back-end I used Python's <a target="_blank" href="http://flask.pocoo.org/">Flask</a> library, the <a target="_blank" href="http://docs.peewee-orm.com/en/latest/">Peewee</a> library, and for the Login I tried to implement a <em>very</em> rudimentary login scheme of my own.</p>
+            <h3>First Project</h3>
+            <p>This project is not yet Front-end only focused. For my first project it was my wish to make everything from scratch on the back-end as well, in order to get a feel for how all the moving parts of a webpage come together.</p>
 
-        <h4>Hosting</h4>
-        <p>I am currently hosting this project at home on a RaspberryPi.</p>
+            <hr class="styledHr">
 
-        <h4>Closing notes</h4>
-        <p>I'll be updating this page soon with the <a target="_blank" href="https://github.com/kepelrs">GitHub link</a> for the whole project, and possibly a short guide meant for fellow web development newbies like me, who want to know how to host their own starter pages easily.</p>
+            <h3>Front end & Back end</h3>
+            <p>For the Front-end I avoided libraries, as I wanted to practice the HTML, CSS, JavaScript and jQuery concepts from the course.
+            </p>
 
-        <p>As of right now I don't intend to improve this project.<br>
-        It was meant as a first project, and I want to keep it as it is.</p>
+            <p>For the Back-end I used Python's <a target="_blank" href="http://flask.pocoo.org/">Flask</a> library, the <a target="_blank" href="http://docs.peewee-orm.com/en/latest/">Peewee</a> library, and for the Login I tried to implement a <em>very</em> rudimentary login scheme of my own.</p>
 
-        <p>Looking back at all the code, I can say that I <em>"gently hate it"</em>. I can now see many ways how it could be so much better, but I didn't know how when I first started. In this way I'm happy with all that I've learned, and I'm sure that my next project will have a much better starting point because of this experience.</p>
+            <hr class="styledHr">
 
-        <p class="centeredText"><strong>Thank you for visiting!</strong></p>
+            <h3>Hosting</h3>
+            <p>I am currently hosting this project at home on a RaspberryPi.</p>
+
+            <h3>Closing notes</h3>
+            <p>I'll be updating this page soon with the <a target="_blank" href="https://github.com/kepelrs">GitHub link</a> for the whole project, and possibly a short guide meant for fellow web development newbies like me, who want to know how to host their own starter pages easily.</p>
+
+            <p>As of right now I don't intend to improve this project.<br>
+            It was meant as a first project, and I want to keep it as it is.</p>
+
+            <p>Looking back at all the code, I can say that I <em>"gently hate it"</em>. I can now see many ways how it could be so much better, but I didn't know how when I first started. In this way I'm happy with all that I've learned, and I'm sure that my next project will have a much better starting point because of this experience.</p>
+
+            <p class="centeredText"><strong>Thank you for visiting!</strong></p>
+
+        </div>
     </div>
 
     <div class="server_message hidden_div"> </div>
 
     <span id="usr" class="hidden_div"> </span>
 
-    <hr>
-    <p>Finance 0.2</p>
+    <footer>
+        <hr>
+        <p>Finance 0.2</p>
+    </footer>
 
     <!-- scrollbar Javascript from https://github.com/Grsmto/simplebar -->
     <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>

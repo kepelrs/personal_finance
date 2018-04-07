@@ -69,7 +69,7 @@ function updateTotalPctg() {
     } else if (totalPct < 100) {
         pctTrackerElem.css("color", "orange");
     } else {
-        pctTrackerElem.css("color", "green");
+        pctTrackerElem.css("color", "#55979a");
     }
 }
 
