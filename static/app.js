@@ -569,6 +569,30 @@ function forCouples(){
     }
 }
 
+function burgerMenuBehavior() {
+    // change burger appearance when menu open
+    var menu = $('.navbar-container');
+    var burger = $('.burger-container');
+    var header = $('header');
+
+    burger.click(function () {
+        burger.toggleClass('burger-open');
+        // show menu
+        menu.toggleClass('nav-open');
+    });
+
+    // always close menu after a click
+    $('body').click(function(ev) {
+
+        if (menu.hasClass('nav-open') &&
+            !document.querySelector('header').contains(ev.target)) {
+            menu.toggleClass('nav-open');
+            burger.toggleClass('burger-open');
+        }
+
+    });
+}
+
 
 
 $(function(){
@@ -588,6 +612,6 @@ $(function(){
     setAboutWidth();
     setupYourAgeSelection();
     calculateRetirementAdditionalTriggers();
-
+    burgerMenuBehavior();
 });
 
