@@ -5,6 +5,7 @@
     display: inline-block;
     margin: 0px 0px 8px 0px;
     padding: 0;
+    z-index: 10;
 }
 
 ul {
@@ -212,6 +213,19 @@ div.home {
     padding: 0;
 }
 
+table.log-income {
+    width: 90vw;
+    max-width: 830px;
+}
+
+table.log-income textarea {
+    width: 98%;
+}
+
+.noOuterBorder {
+    width: 100%;
+}
+
 /*
  * Burger menu css
  */
@@ -311,6 +325,11 @@ div.home {
         font-size: 2em;
     }
 
+    .tracker.hidden_div,
+    .info {
+        font-size: small;
+    }
+
     .navbar-container {
         height: 50vh;
         max-width: 33vw;
@@ -341,13 +360,25 @@ div.home {
         background-color: inherit;
     }
 
+    .home,
+    .about {
+        font-size: small;
+    }
+
     h1 {
         font-size: 2em;
+        transform: scaleY(1.25);
     }
 
     .tracker.hidden_div,
     .info {
         font-size: xx-small;
+    }
+
+    .tracker.hidden_div td,
+    .tracker.hidden_div th {
+        width: 0;
+        padding: 0;
     }
 
     .bar1,
@@ -372,6 +403,8 @@ div.home {
 @media screen and (max-width: 460px) {
     h1 {
         font-size: 1.4em;
+        transform: scaleY(1.4);
+        line-height: 3;
     }
 
     .navbar-container {
