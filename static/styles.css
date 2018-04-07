@@ -124,7 +124,7 @@ input[type=number] {
 
 #logs {
     max-width: 830px;
-    max-height: 80vh;
+    max-height: 60vh;
     overflow: auto;
     margin: 0 auto;
 }
@@ -279,7 +279,6 @@ table.log-income textarea {
 @media screen and (max-width: 830px) {
     #logs {
         border: 1px solid black;
-        max-height: 80vh;
         overflow: auto;
     }
 
@@ -331,7 +330,7 @@ table.log-income textarea {
     }
 
     .navbar-container {
-        height: 50vh;
+        height: 70vh;
         max-width: 33vw;
         left: -100vw;
         position: absolute;
@@ -360,14 +359,14 @@ table.log-income textarea {
         background-color: inherit;
     }
 
-    .home,
-    .about {
+    div.home,
+    div.about {
         font-size: small;
     }
 
-    h1 {
+    header h1 {
         font-size: 2em;
-        transform: scaleY(1.25);
+        line-height: 2.5;
     }
 
     .tracker.hidden_div,
@@ -378,7 +377,7 @@ table.log-income textarea {
     .tracker.hidden_div td,
     .tracker.hidden_div th {
         width: 0;
-        padding: 0;
+        padding: 1px;
     }
 
     .bar1,
@@ -401,10 +400,8 @@ table.log-income textarea {
 }
 
 @media screen and (max-width: 460px) {
-    h1 {
+    header h1 {
         font-size: 1.4em;
-        transform: scaleY(1.4);
-        line-height: 3;
     }
 
     .navbar-container {
