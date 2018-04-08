@@ -453,7 +453,7 @@ div.about p {
     }
 
     .navbar-container {
-        padding-bottom: 5em;
+        padding-bottom: 0.5em;
         max-width: 50vw;
         left: -100vw;
         position: absolute;
