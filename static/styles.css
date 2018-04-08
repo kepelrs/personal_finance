@@ -261,6 +261,10 @@ table.log-income textarea {
     display: block;
 }
 
+.prevent-scroll {
+    overflow: hidden;
+}
+
 /* CAROL MALUQUICES */
 
 input,

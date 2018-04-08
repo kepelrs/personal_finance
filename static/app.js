@@ -575,12 +575,14 @@ function burgerMenuBehavior() {
     var burger = $('.burger-container');
     var header = $('header');
     var modal = $('.modal');
+    var body = $('body');
 
     burger.click(function () {
         burger.toggleClass('burger-open');
         // show menu and modal
         menu.toggleClass('nav-open');
         modal.toggleClass('show-modal');
+        body.toggleClass('prevent-scroll');
     });
 
     // always close menu after a click
@@ -591,6 +593,7 @@ function burgerMenuBehavior() {
             menu.toggleClass('nav-open');
             burger.toggleClass('burger-open');
             modal.toggleClass('show-modal');
+            body.toggleClass('prevent-scroll');
         }
 
     });
