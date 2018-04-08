@@ -150,7 +150,7 @@
     <div class="tracker hidden_div">
         <div class="wrapper-carol">
 
-            <h2 class="green-text">Tracker</h2>
+            <h2 class="green-text">Track your progress</h2>
             <table class="log-income">
                 <tr>
                     <th colspan="2" class="green-text">Income</th>
@@ -182,10 +182,9 @@
                 </tr>
             </table>
 
-            <button id="resetAll">Reset</button>
+            <button id="resetAll">Clear fields</button>
             <button id="submitLogs">Submit</button>
-            <br>
-            <button id="refresh">Show last 50 logs</button>
+            <h2 class="green-text">Recent activity</h2>
 
             <div id="logs" data-simplebar data-simplebar-auto-hide="false">
                 <table class="noOuterBorder">
@@ -207,6 +206,8 @@
                     </tbody>
                 </table>
             </div>
+
+            <button id="refresh">Show last 50 logs</button>
 
         </div>
     </div>
@@ -248,7 +249,7 @@
     <div class="about hidden_div">
         <div class="wrapper-carol">
             <h2>About this website</h2>
-            <p><em><strong>Update: </strong>This project is now very old. To see some already <strong>much cleaner</strong> code please visit the new project <a href="http://130.204.57.83:3127/" target="_blank">Movie Recommendations</a>.</em></p>
+            <p><em><strong>Update: </strong>This project is now very old. To see some already <strong>much cleaner</strong> code please visit the new project <a href="http://movie.arockhub.com/" target="_blank">Movie Recommendations</a>.</em></p>
             <h3>Inspired by</h3>
             <p>This website is inspired by the <strong><a target="_blank" href="https://www.udacity.com/google-scholarships">Google Front-End Web Dev Challenge Scholarship</a></strong>, a few of the <a target="_blank" href="http://www.mrmoneymustache.com/2012/01/13/the-shockingly-simple-math-behind-early-retirement/">Mr. Money Mustache articles</a>, and my will for <a target="_blank" href="{{ url_for('static', filename='freedom.jpg') }}">freedom</a>.</p>
 

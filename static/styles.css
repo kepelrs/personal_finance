@@ -137,10 +137,11 @@ input[type=number] {
 #logs {
     width: 98% !important;
     max-width: 830px;
-    max-height: 60vh;
+    max-height: 40vh;
     overflow: auto;
     margin: 0 auto;
     padding: 0;
+    margin-top: 1em;
     width: 100%;
 }
 
@@ -319,7 +320,8 @@ header {
     padding: 0;
 }
 
-.personal_plan div {
+.personal_plan div,
+.tracker div {
     width: initial;
 }
 
@@ -462,7 +464,7 @@ div.about p {
 
     .tracker.hidden_div,
     .info {
-        font-size: small;
+        font-size: medium;
     }
 
     .navbar-container {
@@ -508,7 +510,11 @@ div.about p {
 
     .tracker.hidden_div,
     .info {
-        font-size: xx-small;
+        font-size: smaller;
+    }
+
+    #expenseType {
+        width: 5em;
     }
 
     .tracker.hidden_div td,
