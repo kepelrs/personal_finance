@@ -79,31 +79,33 @@
 
     <div class="personal_plan hidden_div">
         <div class="wrapper-carol">
-            <table id="regExpenses">
-                <thead>
-                    <tr>
-                        <th colspan="7" class="green-text">Monthly expenses</th>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Regular Expenses</td>
-                        <td rowspan="2" id="personalPlanFun">Fun</td>
-                        <td colspan="2">Random Events</td>
-                        <td rowspan="2">Savings</td>
-                    </tr>
-                    <tr>
-                        <td id="personalPlanRent">Rent</td>
-                        <td id="personalPlanBills">Bills</td>
-                        <td>Food</td>
-                        <td id="personalPlanMisc">Monthly Misc.</td>
-                        <td id="personalPlanEmgcy">Emergency Fund</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="7" class="info">Please set up your intended expenses plan</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="reponsive-table-wrapper" data-simplebar data-simplebar-auto-hide="false">
+                <table id="regExpenses">
+                    <thead>
+                        <tr>
+                            <th colspan="7" class="green-text">Monthly expenses</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Regular Expenses</td>
+                            <td rowspan="2" id="personalPlanFun">Fun</td>
+                            <td colspan="2">Random Events</td>
+                            <td rowspan="2">Savings</td>
+                        </tr>
+                        <tr>
+                            <td id="personalPlanRent">Rent</td>
+                            <td id="personalPlanBills">Bills</td>
+                            <td>Food</td>
+                            <td id="personalPlanMisc">Monthly Misc.</td>
+                            <td id="personalPlanEmgcy">Emergency Fund</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="7" class="info">Please set up your intended expenses plan</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <table id="regular_income">
                 <tr>
@@ -185,7 +187,7 @@
             <br>
             <button id="refresh">Show last 50 logs</button>
 
-            <div id="logs" data-simplebar>
+            <div id="logs" data-simplebar data-simplebar-auto-hide="false">
                 <table class="noOuterBorder">
                     <thead>
                         <tr id="logCats"></tr>
