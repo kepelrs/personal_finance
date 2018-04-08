@@ -574,11 +574,13 @@ function burgerMenuBehavior() {
     var menu = $('.navbar-container');
     var burger = $('.burger-container');
     var header = $('header');
+    var modal = $('.modal');
 
     burger.click(function () {
         burger.toggleClass('burger-open');
-        // show menu
+        // show menu and modal
         menu.toggleClass('nav-open');
+        modal.toggleClass('show-modal');
     });
 
     // always close menu after a click
@@ -588,6 +590,7 @@ function burgerMenuBehavior() {
             !document.querySelector('header').contains(ev.target)) {
             menu.toggleClass('nav-open');
             burger.toggleClass('burger-open');
+            modal.toggleClass('show-modal');
         }
 
     });

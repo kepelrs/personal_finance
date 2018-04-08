@@ -6,6 +6,7 @@
     margin: 0px 0px 8px 0px;
     padding: 0;
     z-index: 10;
+    opacity: 0.98;
 }
 
 ul {
@@ -240,6 +241,21 @@ table.log-income textarea {
     width: 99%;
 }
 
+.modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    z-index: 5;
+}
+
+.show-modal {
+    display: block;
+}
+
 /* CAROL MALUQUICES */
 
 input,
@@ -289,8 +305,18 @@ header {
 .wrapper-carol:first-child {
     padding-top: 10px;
 }
+
 .wrapper-carol:last-child {
     padding-bottom: 20px;
+}
+
+.register_login.hidden_div div {
+    width: initial;
+}
+
+.register_login.hidden_div .wrapper-carol {
+    display: flex;
+    align-items: center;
 }
 
 .styledHr {
@@ -300,7 +326,7 @@ header {
 }
 
 .centeredText {
-    text-align: center;
+    text-align: center !important;
 }
 
 header h1 {
@@ -318,6 +344,12 @@ div.about h4 {
     text-align: center;
 }
 
+div.home p,
+div.about p {
+    text-align: left;
+}
+
+
 .green-text {
     color: #4caf50;
 }
@@ -329,7 +361,7 @@ div.about h4 {
 .burger-container {
     display: none;
     cursor: pointer;
-    width: unset;
+    width: initial;
     margin: 0.2em;
     align-self: center;
 }
@@ -421,8 +453,8 @@ div.about h4 {
     }
 
     .navbar-container {
-        height: 70vh;
-        max-width: 33vw;
+        padding-bottom: 5em;
+        max-width: 50vw;
         left: -100vw;
         position: absolute;
         transition: 0.4s;
@@ -449,11 +481,16 @@ div.about h4 {
     div.home,
     div.about {
         font-size: small;
-        text-align: justify;
     }
 
     header h1 {
         font-size: 2em;
+    }
+
+    .register_login.hidden_div .wrapper-carol {
+        display: inline-block;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .tracker.hidden_div,
@@ -492,7 +529,7 @@ div.about h4 {
     }
 
     .navbar-container {
-        max-width: 40vw;
+        max-width: 50vw;
     }
 }
 
