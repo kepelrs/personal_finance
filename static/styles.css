@@ -207,19 +207,19 @@ input[type=number] {
 }
 
 .positiveIncome{
-    background-color: aquamarine;
+    background-color: #4caf50;
 }
 
 .negativeIncome{
-    background-color: salmon;
+    background-color: #a23124;
 }
 
 .paidLoan{
-    background-color: cornflowerblue;
+    background-color: #222290;
 }
 
 .balance {
-    background-color: gold;
+    background-color: #b1970f;
 }
 
 div.about,
@@ -251,7 +251,7 @@ table.log-income textarea {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 200%;
     width: 100%;
     background-color: rgba(0,0,0,.5);
     z-index: 5;
@@ -263,6 +263,10 @@ table.log-income textarea {
 
 .prevent-scroll {
     overflow: hidden;
+}
+
+.simplebar-scrollbar:before {
+    background: #9e9a9a !important;
 }
 
 /* CAROL MALUQUICES */
