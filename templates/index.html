@@ -190,21 +190,32 @@
                 <table class="noOuterBorder">
                     <thead>
                         <tr id="logCats"></tr>
-                        <tr><th colspan="20">Balance</th></tr>
+                        <tr><th colspan="10">Balance</th></tr>
                         <tr id="balances" class="balance">
-                            <td colspan="20"></td>
+                            <td colspan="10"></td>
                         </tr>
-                        <tr><th colspan="20">Last 50 movements:</th></tr>
+                        <tr><th colspan="10">Last 50 movements:</th></tr>
                     </thead>
-                    <tbody id="logTable">
-                        <tr>
-                            <td colspan="20" class="positiveIncome"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="20" class="negativeIncome"></td>
-                        </tr>
-                    </tbody>
                 </table>
+
+                <div class="second-table">
+                <table id="logTable" class="noOuterBorder">
+                    <tr class="invisib-placeholder">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+                </table>
+                </div>
             </div>
 
             <button id="refresh">Show last 50 logs</button>
@@ -297,13 +308,13 @@
         <p>Finance 0.2</p>
     </footer>
 
-    <!-- scrollbar Javascript from https://github.com/Grsmto/simplebar -->
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
     <!-- jQuery Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- this app's mechanics Javascript -->
     <script src="../static/app.js"></script>
     <!-- sha256 Javascript -->
     <script src="../static/jquery.sha256.js"></script>
+    <!-- scrollbar Javascript from https://github.com/Grsmto/simplebar -->
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
 </body>
 </html>

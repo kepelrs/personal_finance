@@ -137,8 +137,8 @@ input[type=number] {
 #logs {
     width: 98% !important;
     max-width: 830px;
-    max-height: 40vh;
-    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
     margin: 0 auto;
     padding: 0;
     margin-top: 1em;
@@ -267,6 +267,23 @@ table.log-income textarea {
 
 .simplebar-scrollbar:before {
     background: #9e9a9a !important;
+}
+
+/* TABLE TESTS */
+
+#logTable {
+    table-layout: fixed;
+}
+
+.second-table {
+    display: inline-block;
+    height: 30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.invisib-placeholder {
+    display: none;
 }
 
 /* CAROL MALUQUICES */
@@ -421,12 +438,14 @@ div.about p {
     .simplebar-scrollbar {
         right: 12px !important;
     }
+    #logTable {
+        margin: 0 !important;
+    }
 }
 
 @media screen and (max-width: 830px) {
     #logs {
         border: 1px solid black;
-        overflow: auto;
     }
 
 

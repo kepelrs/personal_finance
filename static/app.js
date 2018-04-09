@@ -310,6 +310,13 @@ function displayTargetDiv(e) {
     $($(e.target).attr("class").split(" ")).each(function(i, val){
         if (navBarItems.indexOf(val) >= 0){
             $("div."+val).fadeIn();
+
+            if (val == 'tracker') {
+                // link table header and second table, after table1 is fully filled.
+                var table1 = document.querySelectorAll('#logs table')[0];
+                var table2 = document.querySelectorAll('#logs table')[1];
+                linkTwoTableColWidths(table1, table2);
+            }
         }
     });
 }
@@ -599,7 +606,46 @@ function burgerMenuBehavior() {
     });
 }
 
+function linkTwoTableColWidths(table1, table2) {
 
+    // set both tables to the same width
+    table2.style.width = getComputedStyle(table1).width;
+    table2.style.margin = getComputedStyle(table1).margin;
+    table2.style.padding = getComputedStyle(table1).padding;
+
+    console.log(table2.style.width);
+
+    // get first row of cols for both table
+    var t1cols = table1.querySelector('tr').querySelectorAll('td, th');
+    var table2cols = table2.querySelector('tr').querySelectorAll('td, th');
+
+    // copy sizes from one array of cols to the other
+    t1cols.forEach(function (col, index, array) {
+        var styles = getComputedStyle(col);
+        table2cols[index].style.width = parseInt(styles.width) + parseInt(styles.paddingLeft) +
+            parseInt(styles.paddingRight) - 2 + 'px';
+        console.log(table2cols[index].style.width);
+    });
+
+    // enlarge comment box
+    enlargeCommentBox();
+}
+
+function enlargeCommentBox () {
+    var table1 = document.querySelectorAll('#logs table')[0];
+    var table2 = document.querySelectorAll('#logs table')[1];
+    var t1FirstRow = table1.querySelector('tr').querySelectorAll('td, th');
+    var t2FirstRow = table2.querySelector('tr').querySelectorAll('td, th');
+    var lastComment1 = t1FirstRow[t1FirstRow.length - 1];
+    var lastComment2 = t2FirstRow[t2FirstRow.length - 1];
+    var secondTableWrap = document.querySelector('.second-table');
+
+    for (var elem of [table1, table2, lastComment1, lastComment2]) {
+        elem.style.width = parseInt(getComputedStyle(elem).width) + 170 + 'px';
+    }
+
+    secondTableWrap.style.maxWidth = table1.style.width;
+}
 
 $(function(){
     createPersonalTable(personalPlanClasses);
