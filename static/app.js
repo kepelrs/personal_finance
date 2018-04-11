@@ -640,11 +640,19 @@ function enlargeCommentBox () {
     var lastComment2 = t2FirstRow[t2FirstRow.length - 1];
     var secondTableWrap = document.querySelector('.second-table');
 
-    for (var elem of [table1, table2, lastComment1, lastComment2]) {
+    for (var elem of [table1, table2, lastComment1]) {
         elem.style.width = parseInt(getComputedStyle(elem).width) + 170 + 'px';
     }
 
+    // make sure both table's width stay in sync
     secondTableWrap.style.maxWidth = table1.style.width;
+    lastComment2.style.width = lastComment1.style.width;
+
+    // add padding to comments to ensure visibility
+    table2.querySelectorAll('td:last-child').forEach(function(elem) {
+        elem.style.paddingRight = '15px';
+    });
+
 }
 
 $(function(){
