@@ -633,7 +633,7 @@ function linkTwoTableColWidths(table1, table2) {
     });
 
     // enlarge comment box
-    setupCommentBox(420);
+    setupCommentBox(300);
 }
 
 function setupCommentBox (maxWidth) {
