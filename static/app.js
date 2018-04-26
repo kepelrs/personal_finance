@@ -200,6 +200,8 @@ function refreshButtonSetup() {
                     });
                 });
             $("#usr").html(data.val);
+            linkTwoTableColWidths(document.querySelectorAll('#logs table')[0],
+                                  document.querySelectorAll('#logs table')[1]);
             } else {
                 alert("Error getting log");
                 $("#usr").html("").trigger("change");
@@ -231,14 +233,14 @@ function registerButton() {
                 displayServerMessage(data.serverMessage);
                 setTimeout(function(){
                     $(data.redirect).trigger("click");
-                }, 3000);
+                }, 2000);
                 var logout = $("a.register_login").html("Logout");
                 logout.on("click", logoutButton);
             } else {
                 displayServerMessage(data.serverMessage);
                 setTimeout(function(){
                     $(data.redirect).trigger("click");
-                }, 3000);
+                }, 2000);
             }
             $("#usr").html(data.val);
         });
@@ -258,21 +260,24 @@ function loginButton() {
         $.post("/login", form, function(data) {
             data.redirect = "a." + data.redirect;
 
+            // WHEN SUCCESSFUL LOGIN
             if(data.response === "success") {
                 displayServerMessage(data.serverMessage);
                 setTimeout(function(){
                     $(data.redirect).trigger("click");
-                }, 3000);
+                }, 2000);
                 var logout = $("a.register_login").html("Logout");
                 logout.unbind();
                 logout.on("click", logoutButton);
                 $("#usr").html(data.val);
                 $("#reloadPlan").trigger("click");
+
+            // WHEN UNSUCCESSFUL LOGIN
             } else {
                 displayServerMessage(data.serverMessage);
                 setTimeout(function(){
                     $(data.redirect).trigger("click");
-                }, 3000);
+                }, 2000);
                 $("#usr").html(data.val);
             }
             forCouples();
@@ -622,16 +627,16 @@ function linkTwoTableColWidths(table1, table2) {
     // copy sizes from one array of cols to the other
     t1cols.forEach(function (col, index, array) {
         var styles = getComputedStyle(col);
-        table2cols[index].style.width = parseInt(styles.width) + parseInt(styles.paddingLeft) +
-            parseInt(styles.paddingRight) - 2 + 'px';
-        console.log(table2cols[index].style.width);
+        table2cols[index].style.width = styles.width;
+        table2cols[index].style.padding = styles.padding;
+        table2cols[index].style.maxWidth = styles.width;
     });
 
     // enlarge comment box
-    enlargeCommentBox();
+    setupCommentBox(420);
 }
 
-function enlargeCommentBox () {
+function setupCommentBox (maxWidth) {
     var table1 = document.querySelectorAll('#logs table')[0];
     var table2 = document.querySelectorAll('#logs table')[1];
     var t1FirstRow = table1.querySelector('tr').querySelectorAll('td, th');
@@ -640,19 +645,30 @@ function enlargeCommentBox () {
     var lastComment2 = t2FirstRow[t2FirstRow.length - 1];
     var secondTableWrap = document.querySelector('.second-table');
 
-    for (var elem of [table1, table2, lastComment1]) {
-        elem.style.width = parseInt(getComputedStyle(elem).width) + 170 + 'px';
+    // calculate how much to enlarge comment box
+    var delta = maxWidth - parseInt(getComputedStyle(lastComment1).width);
+
+    // enlarge only when necessary
+    if (delta > 1 || delta < -1) {
+        for (var elem of [table1, table2, lastComment1]) {
+            elem.style.width = parseInt(getComputedStyle(elem).width) + delta + 'px';
+        }
     }
 
     // make sure both table's width stay in sync
     secondTableWrap.style.maxWidth = table1.style.width;
-    lastComment2.style.width = lastComment1.style.width;
+    lastComment2.style.width = getComputedStyle(lastComment1).width;
 
-    // add padding to comments to ensure visibility
-    table2.querySelectorAll('td:last-child').forEach(function(elem) {
-        elem.style.paddingRight = '15px';
-    });
+    // make all comments be inside a padded paragraph (for visibility)
+    var allComments = table2.querySelectorAll('td:last-child');
 
+    if (!table2.querySelectorAll('td:last-child p').length) {
+
+        allComments.forEach(function(elem){
+           elem.innerHTML = `<p style='padding-right: 15px;'>${elem.innerHTML}</p>`;
+        });
+
+    }
 }
 
 $(function(){
