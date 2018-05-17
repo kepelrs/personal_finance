@@ -11,17 +11,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="../static/styles.css">
 
-    <!-- scrollbar style from https://github.com/Grsmto/simplebar -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
-
-    <!-- Fall back overflow for when script disabled -->
-    <noscript>
-      <style>
-        [data-simplebar] {
-          overflow: auto;
-        }
-      </style>
-    </noscript>
 </head>
 <body>
     <header>
@@ -79,7 +68,7 @@
 
     <div class="personal_plan hidden_div">
         <div class="wrapper-carol">
-            <div class="reponsive-table-wrapper" data-simplebar data-simplebar-auto-hide="false">
+            <div class="responsive-table-wrapper">
                 <table id="regExpenses">
                     <thead>
                         <tr>
@@ -107,41 +96,43 @@
                 </table>
             </div>
 
-            <table id="regular_income">
-                <tr>
-                    <th class="green-text">Regular Income</th>
-                    <th>Your info</th>
-                    <th class="green-text">Expected age of retirement</th>
-                </tr>
-                <tr>
-                    <td rowspan="2" id="total_pct">100%</td>
-                    <td>Current age</td>
-                    <td rowspan="4">
-                        <h1 id="retireAge">--</h1>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <select id="yourAge"></select>
-                    </td>
-                </tr>
-                <tr>
-                    <td rowspan="2">
-                        <input type="number" class="rawNum total" placeholder="$0">
-                    </td>
-                    <td>Current savings</td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="number" id="startingSavings" placeholder="$0">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="info">Input your expected monthly income after taxes</td>
-                    <td class="info">Input Your starting information</td>
-                    <td class="info">Age you can retire on your own, based on 5% annual compound returns on your savings.</td>
-                </tr>
-            </table>
+            <div class="responsive-table-wrapper">
+                <table id="regular_income">
+                    <tr>
+                        <th class="green-text">Regular Income</th>
+                        <th>Your info</th>
+                        <th class="green-text">Expected age of retirement</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" id="total_pct">100%</td>
+                        <td>Current age</td>
+                        <td rowspan="4">
+                            <h1 id="retireAge">--</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="yourAge"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">
+                            <input type="number" class="rawNum total" placeholder="$0">
+                        </td>
+                        <td>Current savings</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" id="startingSavings" placeholder="$0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="info">Input your expected monthly income after taxes</td>
+                        <td class="info">Input Your starting information</td>
+                        <td class="info">Age you can retire on your own, based on 5% annual compound returns on your savings.</td>
+                    </tr>
+                </table>
+            </div>
             <button id="reloadPlan">Reload</button>
             <button id="savePlan">Save setup</button>
         </div>

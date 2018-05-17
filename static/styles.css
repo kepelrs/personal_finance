@@ -175,7 +175,7 @@ input[type=number] {
     margin-bottom: 1em;
 }
 
-.reponsive-table-wrapper {
+.responsive-table-wrapper {
     margin-bottom: 1.5em;
 }
 
@@ -298,23 +298,23 @@ table.log-income textarea {
  */
 
 /* width */
-.tracker.hidden_div ::-webkit-scrollbar {
+.hidden_div ::-webkit-scrollbar {
     width: 10px;
     height: 8px;
 }
 
 /* Track */
-.tracker.hidden_div ::-webkit-scrollbar-track {
+.hidden_div ::-webkit-scrollbar-track {
     background: rgba(1,1,1,0.5);
 }
 
 /* Handle */
-.tracker.hidden_div ::-webkit-scrollbar-thumb {
+.hidden_div ::-webkit-scrollbar-thumb {
     background: #888;
 }
 
 /* Handle on hover */
-.tracker.hidden_div ::-webkit-scrollbar-thumb:hover {
+.hidden_div ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -549,6 +549,11 @@ div.about p {
         display: inline-block;
     }
 
+
+    .responsive-table-wrapper {
+        margin-bottom: 1.5em;
+        overflow-x: scroll;
+    }
 }
 
 @media screen and (max-width: 550px) {
