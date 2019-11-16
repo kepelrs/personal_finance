@@ -656,6 +656,7 @@ function setupCommentBox (maxWidth) {
     }
 
     // make sure both table's width stay in sync
+    secondTableWrap.style.width = table1.style.width;
     secondTableWrap.style.maxWidth = table1.style.width;
     lastComment2.style.width = getComputedStyle(lastComment1).width;
 
